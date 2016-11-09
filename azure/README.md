@@ -28,10 +28,26 @@ Launch
 time terraform apply -var 'azure_ssh_key_path=$AZURE_SSH_KEY_PATH' -var 'azure_ssh_key_fingerprint=$AZURE_SSH_KEY_FINGERPRINT'
 ````
 
+Destroy
+````
+time terraform destroy -var 'azure_ssh_key_path=$AZURE_SSH_KEY_PATH' -var 'azure_ssh_key_fingerprint=$AZURE_SSH_KEY_FINGERPRINT'
+````
+
 ## To-Do
 
 Need to do something with the output
 
 ## Troubleshooting
 
-Sometimes the -var may not pass the variables as expected. Could always troubleshoot it with replacing it directly with the actual values. Most of the time its a problem incorrectly exported environment variables
+- Sometimes the -var may not pass the variables as expected. Could always troubleshoot it with replacing it directly with the actual values. Most of the time its a problem incorrectly exported environment variables
+- While destroying the infrastructure sometimes it throws an error towards the end like:
+````
+* azure_virtual_network.vnet: Error waiting for Virtual Network name-network to be deleted: Error response from Azure. Code: BadRequest, Message: Cannot delete or modify virtual network while in use 'nameof-network'.
+
+Terraform does not automatically rollback in the face of errors.
+Instead, your Terraform state file has been partially updated with
+any resources that successfully completed. Please address the error
+above and apply again to incrementally change your infrastructure.
+````
+This is because it takes a little time for Azure release all the dependencies running. We are good to re-run the same destroy command after a few minutes or even seconds to completely destroy all the resources we launched.
+
