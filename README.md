@@ -1,2 +1,2 @@
-# terraform
-Trials with Terraform
+# Terraform launching Instances with different Service Providers
+
