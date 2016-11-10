@@ -20,7 +20,7 @@ Get an Idea of how stuff works with the following command
 ````
 terraform graph | dot -Tpng > graph.png
 ````
-![Alt text](/graph.png?raw=true "Terraform Graph")
+![Image](/azure-classic-linux/graph.png?raw=true "Terraform Graph")
 
 
 Dry/Trial Run
