@@ -16,6 +16,13 @@ source ./generate-ssh.sh
 
 ##Run Terraform
 
+Get an Idea of how stuff works with the following command
+````
+terraform graph | dot -Tpng > graph.png
+````
+![Alt text](/graph.png?raw=true "Terraform Graph")
+
+
 Dry/Trial Run
 ````
 time terraform plan -var 'azure_ssh_key_path=$AZURE_SSH_KEY_PATH' -var 'azure_ssh_key_fingerprint=$AZURE_SSH_KEY_FINGERPRINT'
