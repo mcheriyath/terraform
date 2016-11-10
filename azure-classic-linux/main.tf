@@ -70,4 +70,17 @@ resource "azure_instance" "web" {
         public_port = 22
         private_port = 22
     }
+    endpoint {
+        name = "WEB"
+        protocol = "tcp"
+        public_port = 80
+        private_port = 80
+    }
+    provisioner "file" {
+        source = "script.sh"
+        destination = "/tmp/script.sh"
+    }
+    provisioner "remote-exec" {
+        inline = ["bash /tmp/script.sh"]
+    }
 }
