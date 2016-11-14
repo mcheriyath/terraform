@@ -19,27 +19,31 @@ create-service-principal.sh - Required to generate and store information like cl
 vars.tf - Variables defined within main.tf and passed while running terraform apply command
 main.tf - Main file defining resources to be created and attached to the instance being launched
 output.tf - Fetches the Public IP address of the recently launched Instance and displays while we run tf apply
+samplescript.ps1 - Currrently working Powershell script which mounts the imported OS Disk and creates a new VM.
 
 ##Run Terraform
 
 Dry/Trial Run
 ````
-time terraform plan
+terraform plan -var subscriptionid=$SUBSCRIPTION_ID -var clientid=$CLIENT_ID -var clientsecret=$CLIENT_SECRET -var tenantid=$TENANT_ID
 ````
 
 Verify the output in the trial run to make sure that the terraform is going to run as expected
 
 Launch
 ````
-time terraform apply 
+terraform plan -var subscriptionid=$SUBSCRIPTION_ID -var clientid=$CLIENT_ID -var clientsecret=$CLIENT_SECRET -var tenantid=$TENANT_ID
 ````
 
 Destroy
 ````
-time terraform destroy
+terraform plan -var subscriptionid=$SUBSCRIPTION_ID -var clientid=$CLIENT_ID -var clientsecret=$CLIENT_SECRET -var tenantid=$TENANT_ID
 ````
 
 ## To Do
+- Fix errors:
+  * azurerm_virtual_machine.winserver: "os_profile": required field is not set
+  * azurerm_virtual_machine.winserver: compute.VirtualMachinesClient#CreateOrUpdate: Failure responding to request: StatusCode=400 -- Original Error: autorest/azure: Service returned an error. Status=400 Code="InvalidParameter" Message="Parameter 'osProfile' is not allowed.
 - Launch a Windows Instance from the Image imported from datacenter
 
 ## Troubleshooting
