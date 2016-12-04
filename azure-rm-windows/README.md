@@ -32,12 +32,12 @@ Verify the output in the trial run to make sure that the terraform is going to r
 
 Launch
 ````
-terraform plan -var subscriptionid=$SUBSCRIPTION_ID -var clientid=$CLIENT_ID -var clientsecret=$CLIENT_SECRET -var tenantid=$TENANT_ID
+terraform apply -var subscriptionid=$SUBSCRIPTION_ID -var clientid=$CLIENT_ID -var clientsecret=$CLIENT_SECRET -var tenantid=$TENANT_ID
 ````
 
 Destroy
 ````
-terraform plan -var subscriptionid=$SUBSCRIPTION_ID -var clientid=$CLIENT_ID -var clientsecret=$CLIENT_SECRET -var tenantid=$TENANT_ID
+terraform destroy -var subscriptionid=$SUBSCRIPTION_ID -var clientid=$CLIENT_ID -var clientsecret=$CLIENT_SECRET -var tenantid=$TENANT_ID
 ````
 
 ## To Do
