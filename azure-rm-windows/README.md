@@ -45,6 +45,7 @@ terraform destroy -var subscriptionid=$SUBSCRIPTION_ID -var clientid=$CLIENT_ID 
   * azurerm_virtual_machine.winserver: "os_profile": required field is not set
   * azurerm_virtual_machine.winserver: compute.VirtualMachinesClient#CreateOrUpdate: Failure responding to request: StatusCode=400 -- Original Error: autorest/azure: Service returned an error. Status=400 Code="InvalidParameter" Message="Parameter 'osProfile' is not allowed.
 - Launch a Windows Instance from the Image imported from datacenter
+-- Apparently this is only possible with [AzureRM CLI or powershell.](http://www.codeisahighway.com/how-to-create-a-virtual-machine-from-a-custom-image-using-arm-and-azure-powershell-v1-0-x/)
 
 ## Troubleshooting
  - None for now.
